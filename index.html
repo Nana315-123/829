@@ -205,7 +205,7 @@ body{
   .candle-flame{
   width:21px;
   height:35px;
-  top:90vh;
+  top:22vh;
 }
   
 }
@@ -263,6 +263,9 @@ const cakeImage = document.querySelector(".cake-image");
 function syncFlamePosition(){
   if(!flame) return;
   flame.style.left = "50vw";
+  if(window.innerWidth <= 600){
+    flame.style.top = "22vh";
+  }else{
   flame.style.top = "17vh";
 }
 
