@@ -205,7 +205,12 @@ body{
   .candle-flame{
   width:21px;
   height:35px;
-  top:22vh;
+  top:21vh;
+}
+
+  .candle-flame::after{
+  width:13px;
+  height:22px;
 }
   
 }
@@ -264,7 +269,7 @@ function syncFlamePosition(){
   if(!flame) return;
   flame.style.left = "50vw";
   if(window.innerWidth <= 600){
-    flame.style.top = "22vh";
+    flame.style.top = "21vh";
   }else{
   flame.style.top = "17vh";
 }
