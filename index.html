@@ -268,9 +268,6 @@ const cakeImage = document.querySelector(".cake-image");
 function syncFlamePosition(){
   if(!flame) return;
   flame.style.left = "50vw";
-  if(window.innerWidth <= 600){
-    flame.style.top = "21vh";
-  }else{
   flame.style.top = "17vh";
 }
 
