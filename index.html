@@ -71,7 +71,6 @@ body{
 
 .film-track{
   position:absolute;
-
   top:0;
   left:0;
 
@@ -83,9 +82,8 @@ body{
 
   gap:0;
 
-  animation:filmDown 60s linear infinite;
+  animation:filmDown 80s linear infinite;
 }
-
 
 .film-frame{
   position:relative;
@@ -95,22 +93,22 @@ body{
   aspect-ratio:2 / 3;
   height:auto;
 
-  margin:0;
+  margin:0 auto;
   padding:10px;
 
   background:#7d8d7c;
-  border-radius:3px;
 
   overflow:hidden;
-
-  box-shadow:0 8px 25px rgba(80,95,80,.12);
 }
 
 .film-frame img{
   display:block;
+
   width:100%;
   height:100%;
-  object-fit:fill;
+
+  object-fit:contain;
+
   border-radius:2px;
 }
 
@@ -133,11 +131,9 @@ body{
     );
 }
 
-
 .film-frame::before{
   top:-10px;
 }
-
 
 .film-frame::after{
   bottom:-10px;
@@ -145,11 +141,11 @@ body{
 
 @keyframes filmDown{
   from{
-    transform:translateY(-50%);
+    transform:translateY(0);
   }
 
   to{
-    transform:translateY(0);
+    transform:translateY(50%);
   }
 }
   
@@ -158,25 +154,65 @@ body{
   .film-track{
     flex-direction:row;
 
-    align-items:center;
-
     width:max-content;
-    height:100%;
+    height:auto;
 
     gap:0;
 
-    animation:filmRight 70s linear infinite;
+    align-items:center;
+
+    animation:filmRight 90s linear infinite;
   }
 
 
+  .film-frame{
+    width:240px;
+    height:360px;
+
+    aspect-ratio:2 / 3;
+
+    margin:0;
+  }
+
+  .film-frame::before,
+  .film-frame::after{
+
+    top:5px;
+    bottom:5px;
+
+    left:auto;
+    right:auto;
+
+    width:7px;
+    height:auto;
+
+    background:
+      repeating-linear-gradient(
+        180deg,
+        #f8f5ed 0 9px,
+        transparent 9px 16px
+      );
+  }
+
+
+  .film-frame::before{
+    left:-10px;
+  }
+
+  .film-frame::after{
+    right:-10px;
+  }
+
   @keyframes filmRight{
+
     from{
-      transform:translateX(-50%);
+      transform:translateX(0);
     }
 
     to{
-      transform:translateX(0);
+      transform:translateX(-50%);
     }
+
   }
 
 }
