@@ -50,8 +50,39 @@ body{
     max(18px,env(safe-area-inset-bottom));
 }
 
-.cake-stage{position:relative;width:100vw;height:100dvh;min-height:100dvh;display:flex;align-items:center;justify-content:center;transition:opacity 1.25s ease,transform 1.25s ease;z-index:999;}
-.cake-stage.hide{opacity:0;transform:translateY(35px) scale(.78);pointer-events:none;}
+.cake-stage{
+  position:relative;
+  width:100vw;
+  height:100dvh;
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity 1.25s ease,transform 1.25s ease;
+  z-index:999;
+}
+  
+  .blow-hint{
+  position:absolute;
+  left:50%;
+  bottom:8vh;
+  transform:translateX(-50%);
+  color:#849482;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:14px;
+  letter-spacing:.12em;
+  white-space:nowrap;
+  opacity:.8;
+  animation:hintPulse 1.8s ease-in-out infinite;
+  pointer-events:none;
+}
+  
+.cake-stage.hide{
+  opacity:0;
+  transform:translateY(35px) scale(.78);
+  pointer-events:none;
+}
+  
 .cake-wrap{
   position:relative;
   width:1224px;
@@ -61,10 +92,51 @@ body{
 
   transform:translate(-59px, 25px);
 }
-.cake-image{display:block;width:1224px;height:auto;max-width:none;user-select:none;-webkit-user-drag:none;}
-.candle-flame{position:fixed;left:50vw;top:17vh;width:58px;height:84px;transform:translate(-50%,-50%);z-index:2147483647;pointer-events:none;border-radius:55% 45% 58% 42%;background:radial-gradient(ellipse at 50% 72%,#fffef1 0 15%,#fff1ad 35%,#efd27b 62%,rgba(231,193,103,0) 100%);filter:drop-shadow(0 0 15px rgba(235,204,116,.55));animation:flicker .72s ease-in-out infinite alternate;transition:opacity .18s ease,transform .25s ease;}
-.candle-flame::after{content:"";position:absolute;left:50%;bottom:8px;width:24px;height:42px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,#fffef8,#fff5c2 70%,transparent);}
-.candle-flame.blown{animation:none;opacity:0;transform:translate(-50%,-65%) scale(.16,.08) rotate(16deg);filter:blur(2px);}
+  
+.cake-image{
+  display:block;
+  width:1224px;
+  height:auto;
+  max-width:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+  
+.candle-flame{
+  position:fixed;
+  left:50vw;
+  top:17vh;
+  width:58px;
+  height:84px;
+  transform:translate(-50%,-50%);
+  z-index:2147483647;
+  pointer-events:none;
+  border-radius:55% 45% 58% 42%;
+  background:radial-gradient(ellipse at 50% 72%,#fffef1 0 15%,#fff1ad 35%,#efd27b 62%,rgba(231,193,103,0) 100%);
+  filter:drop-shadow(0 0 15px rgba(235,204,116,.55));
+  animation:flicker .72s ease-in-out infinite alternate;
+  transition:opacity .18s ease,transform .25s ease;
+}
+  
+.candle-flame::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:8px;
+  width:24px;
+  height:42px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(ellipse,#fffef8,#fff5c2 70%,transparent);
+}
+  
+.candle-flame.blown{
+  animation:none;
+  opacity:0;
+  transform:translate(-50%,-65%) scale(.16,.08) rotate(16deg);
+  filter:blur(2px);
+}
+  
 @keyframes flicker{0%{transform:translate(-50%,-82%) rotate(-7deg) scale(.94,1)}50%{transform:translate(-50%,-82%) rotate(3deg) scale(1.03,1.05)}100%{transform:translate(-50%,-82%) rotate(7deg) scale(.96,1)}}
 
 .status{
@@ -229,6 +301,8 @@ body{
     <div class="cake-wrap">
       <img class="cake-image" src="514.png" alt="">
     </div>
+
+   <div class="blow-hint">BLOW THE CANDLE ♡</div>
   </section>
 
   <div class="candle-flame" id="flame"></div>
