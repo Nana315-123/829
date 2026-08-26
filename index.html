@@ -104,8 +104,9 @@ body{
   position:relative;
   flex:none;
 
-  width:70vw;
-  aspect-ratio:9 / 16;
+  width:68vw;
+  aspect-ratio:1 / 1.18;
+  height:auto;
 
   margin:0 auto;
 
@@ -163,40 +164,25 @@ body{
   bottom:-10px;
 }
 
-
-/* phone: TOP → BOTTOM */
-
 @keyframes filmDown{
-
   from{
-    transform:translateY(0);
+    transform:translateY(-50%);
   }
 
   to{
-    transform:translateY(50%);
+    transform:translateY(0);
   }
-
 }
-
-
-/* ================================
-   COMPUTER
-   horizontal film
-   ================================ */
-
+  
 @media (min-width:700px){
 
   .film-track{
-
-    top:0;
-    left:0;
-
-    width:max-content;
-    height:100%;
-
     flex-direction:row;
 
     align-items:center;
+
+    width:max-content;
+    height:100%;
 
     gap:24px;
 
@@ -205,22 +191,16 @@ body{
 
 
   .film-frame{
-
     width:220px;
-    aspect-ratio:9 / 16;
+    aspect-ratio:1 / 1.18;
     height:auto;
 
     margin:0;
-
-    padding:12px;
   }
 
 
-  /* vertical film holes */
-
   .film-frame::before,
   .film-frame::after{
-
     top:5px;
     bottom:5px;
 
@@ -249,21 +229,18 @@ body{
   }
 
 
-  /* computer: LEFT → RIGHT */
-
   @keyframes filmRight{
-
     from{
-      transform:translateX(0);
+      transform:translateX(-50%);
     }
 
     to{
-      transform:translateX(50%);
+      transform:translateX(0);
     }
-
   }
 
 }
+  
 .cake-stage{
   position:relative;
   width:100vw;
