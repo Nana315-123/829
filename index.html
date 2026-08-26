@@ -50,6 +50,177 @@ body{
     max(18px,env(safe-area-inset-bottom));
 }
 
+.film-strip{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100dvh;
+  overflow:hidden;
+  z-index:1;
+  pointer-events:none;
+  opacity:1;
+}
+
+.film-strip::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,.55);
+  pointer-events:none;
+  z-index:10;
+}
+
+.film-track{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:24px;
+
+  width:100%;
+  height:max-content;
+
+  animation:filmMoveDown 28s linear infinite;
+}
+  
+.film-frame{
+  position:relative;
+  flex:none;
+
+  width:82vw;
+  height:55vw;
+
+  max-height:330px;
+
+  padding:14px;
+
+  background:#7d8d7c;
+
+  border-radius:4px;
+
+  box-shadow:
+    0 8px 25px rgba(80,95,80,.12);
+}
+
+.film-frame img{
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  border-radius:2px;
+}
+
+.film-frame::before,
+.film-frame::after{
+  content:"";
+
+  position:absolute;
+
+  left:5px;
+  right:5px;
+
+  height:8px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #f8f5ed 0 10px,
+      transparent 10px 17px
+    );
+}
+
+.film-frame::before{
+  top:-12px;
+}
+
+.film-frame::after{
+  bottom:-12px;
+}
+
+@keyframes filmMoveDown{
+
+  from{
+    transform:translateY(-50%);
+  }
+
+  to{
+    transform:translateY(0);
+  }
+
+}
+
+@media (min-width:700px){
+
+  .film-track{
+
+    flex-direction:row;
+
+    align-items:center;
+
+    width:max-content;
+    height:100%;
+
+    gap:28px;
+
+    animation:filmMoveRight 32s linear infinite;
+  }
+
+
+  .film-frame{
+
+    width:300px;
+    height:210px;
+
+  }
+
+  .film-frame::before,
+  .film-frame::after{
+
+    top:5px;
+    bottom:5px;
+
+    left:auto;
+    right:auto;
+
+    width:8px;
+    height:auto;
+
+    background:
+      repeating-linear-gradient(
+        180deg,
+        #f8f5ed 0 10px,
+        transparent 10px 17px
+      );
+
+  }
+
+
+  .film-frame::before{
+    left:-12px;
+  }
+
+
+  .film-frame::after{
+    right:-12px;
+  }
+
+
+  @keyframes filmMoveRight{
+
+    from{
+      transform:translateX(-50%);
+    }
+
+    to{
+      transform:translateX(0);
+    }
+
+  }
+
+}
+
 .cake-stage{
   position:relative;
   width:100vw;
@@ -295,6 +466,29 @@ body{
 
 <main class="scene">
 
+    <div class="film-frame">
+      <img src="p1.jpg" alt="">
+    </div>
+
+    <div class="film-frame">
+      <img src="p2.jpg" alt="">
+    </div>
+
+    <div class="film-frame">
+      <img src="p3.jpg" alt="">
+    </div>
+
+    <div class="film-frame">
+      <img src="p4.jpg" alt="">
+    </div>
+
+    <div class="film-frame">
+      <img src="p5.jpg" alt="">
+    </div>
+
+  </div>
+</div>
+
   <div class="status" id="status">Please enable microphone access in your browse settings</div>
 
   <section class="cake-stage" id="cakeStage">
@@ -329,7 +523,7 @@ body{
 <script>
 const BLOW_THRESHOLD = 0.20;
 
-const BLOW_DURATION = 190;
+const BLOW_DURATION = 120;
 
 const CONFETTI_COUNT = 40;
 
