@@ -71,7 +71,7 @@ body{
 
 
 /* =========================
-   FILM TRACK — PHONE
+   FILM TRACK
    ========================= */
 
 .film-track{
@@ -80,22 +80,18 @@ body{
   left:0;
 
   display:flex;
-  flex-direction:column;
-
-  width:100%;
-  height:max-content;
 
   margin:0;
   padding:0;
 
   gap:0;
 
-  animation:filmDown 80s linear infinite;
+  animation:filmDown 70s linear infinite;
 }
 
 
 /* =========================
-   PHOTO — PHONE
+   EACH PHOTO
    ========================= */
 
 .film-frame{
@@ -103,41 +99,43 @@ body{
   flex:none;
 
   /*
-    2 : 3
-    width = exactly screen width
+    EVERY PHOTO IS EXACTLY 2:3
   */
-  width:100vw;
+  width:40vw;
   aspect-ratio:2 / 3;
   height:auto;
 
   margin:0;
   padding:0;
 
-  border:0;
-
   overflow:hidden;
 }
 
 
-/* PHOTO */
+/* =========================
+   PHOTO
+   ========================= */
 
 .film-frame img{
   display:block;
 
   width:100%;
   height:100%;
-  aspect-ratio:2 / 3;
-  object-fit:contain;
 
   margin:0;
   padding:0;
   border:0;
 
+  /*
+    Keep the whole photo.
+    No cropping.
+  */
+  object-fit:contain;
 }
 
 
 /* =========================
-   FILM HOLES — PHONE
+   FILM STRIP EDGES
    ========================= */
 
 .film-frame::before,
@@ -171,8 +169,13 @@ body{
 
 
 /* =========================
-   PHONE MOVEMENT
+   PHONE
+   TOP → BOTTOM
    ========================= */
+
+.film-track{
+  flex-direction:column;
+}
 
 @keyframes filmDown{
   from{
@@ -187,6 +190,7 @@ body{
 
 /* =========================
    COMPUTER
+   LEFT → RIGHT
    ========================= */
 
 @media (min-width:700px){
@@ -194,39 +198,26 @@ body{
   .film-track{
     flex-direction:row;
 
-    width:max-content;
-    height:100dvh;
+    top:50%;
+    left:0;
 
-    align-items:flex-start;
+    transform:translateY(-50%);
 
-    animation:filmRight 90s linear infinite;
+    animation:filmRight 70s linear infinite;
   }
-  
-.film-frame{
- 
-  aspect-ratio:2 / 3;
 
-  margin:0;
-  padding:0;
-  border:0;
 
-  flex:none;
-  overflow:hidden;
-}
-  
-  .film-frame img{
-    display:block;
-    width:100%;
-    height:100%;
+  .film-frame{
+    /*
+      Same 2:3 ratio.
+      Do NOT change this to screen height.
+    */
+    width:26.6667vh;
+    height:40vh;
+
     aspect-ratio:2 / 3;
-
-    object-fit:contain;
   }
 
-
-  /* =========================
-     FILM HOLES — COMPUTER
-     ========================= */
 
   .film-frame::before,
   .film-frame::after{
@@ -256,17 +247,13 @@ body{
   }
 
 
-  /* =========================
-     COMPUTER MOVEMENT
-     ========================= */
-
   @keyframes filmRight{
     from{
-      transform:translateX(0);
+      transform:translateX(0) translateY(-50%);
     }
 
     to{
-      transform:translateX(-50%);
+      transform:translateX(-50%) translateY(-50%);
     }
   }
 
