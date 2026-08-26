@@ -50,10 +50,6 @@ body{
     max(18px,env(safe-area-inset-bottom));
 }
 
-/* ================================
-   FILM BACKGROUND
-   ================================ */
-
 .film-strip{
   position:fixed;
   inset:0;
@@ -64,9 +60,6 @@ body{
   pointer-events:none;
 }
 
-
-/* white soft overlay */
-
 .film-strip::after{
   content:"";
   position:absolute;
@@ -75,12 +68,6 @@ body{
   background:rgba(255,255,255,.55);
   pointer-events:none;
 }
-
-
-/* ================================
-   PHONE
-   vertical film
-   ================================ */
 
 .film-track{
   position:absolute;
@@ -94,9 +81,9 @@ body{
   width:100%;
   height:max-content;
 
-  gap:18px;
+  gap:0;
 
-  animation:filmDown 30s linear infinite;
+  animation:filmDown 60s linear infinite;
 }
 
 
@@ -105,30 +92,27 @@ body{
   flex:none;
 
   width:70vw;
-  aspect-ratio:2 / 2.8;
+  aspect-ratio:2 / 3;
+  height:auto;
 
   margin:0;
-  padding:0;
+  padding:10px;
+
+  background:#7d8d7c;
+  border-radius:3px;
 
   overflow:hidden;
 
-  background:#f8f5ed;
+  box-shadow:0 8px 25px rgba(80,95,80,.12);
 }
-
 
 .film-frame img{
   display:block;
-
   width:100%;
   height:100%;
-
-  object-fit:cover;
-
-  border-radius:0px;
+  object-fit:fill;
+  border-radius:2px;
 }
-
-
-/* film holes */
 
 .film-frame::before,
 .film-frame::after{
@@ -179,47 +163,9 @@ body{
     width:max-content;
     height:100%;
 
-    gap:24px;
+    gap:0;
 
-    animation:filmRight 35s linear infinite;
-  }
-
-
-  .film-frame{
-    width:100vx;
-    height:100dvh;
-
-    margin:0;
-  }
-
-
-  .film-frame::before,
-  .film-frame::after{
-    top:5px;
-    bottom:5px;
-
-    left:auto;
-    right:auto;
-
-    width:7px;
-    height:auto;
-
-    background:
-      repeating-linear-gradient(
-        180deg,
-        #f8f5ed 0 9px,
-        transparent 9px 16px
-      );
-  }
-
-
-  .film-frame::before{
-    left:-10px;
-  }
-
-
-  .film-frame::after{
-    right:-10px;
+    animation:filmRight 70s linear infinite;
   }
 
 
@@ -503,6 +449,10 @@ body{
       <img src="p5.jpeg" alt="">
     </div>
 
+     <div class="film-frame">
+      <img src="p6.jpeg" alt="">
+    </div>
+
     <div class="film-frame">
       <img src="p1.jpeg" alt="">
     </div>
@@ -521,6 +471,34 @@ body{
 
     <div class="film-frame">
       <img src="p5.jpeg" alt="">
+    </div>
+
+     <div class="film-frame">
+      <img src="p6.jpeg" alt="">
+    </div>
+
+      <div class="film-frame">
+      <img src="p1.jpeg" alt="">
+    </div>
+
+    <div class="film-frame">
+      <img src="p2.jpeg" alt="">
+    </div>
+
+    <div class="film-frame">
+      <img src="p3.jpeg" alt="">
+    </div>
+
+    <div class="film-frame">
+      <img src="p4.jpeg" alt="">
+    </div>
+
+    <div class="film-frame">
+      <img src="p5.jpeg" alt="">
+    </div>
+
+     <div class="film-frame">
+      <img src="p6.jpeg" alt="">
     </div>
 
   </div>
