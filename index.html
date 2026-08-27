@@ -319,6 +319,15 @@ body{
   pointer-events:none;
 }
 
+  .film::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:20;
+  background:rgba(255,255,255,.55);
+  pointer-events:none;
+}
+
 .film-top{
   top:2vh;
 }
@@ -390,7 +399,7 @@ body{
     repeating-linear-gradient(
       90deg,
       #f8f5ed 0 10px,
-      #e8eadc 10px 17px
+      #858e73 10px 17px
     );
 }
 .film-frame::before{
