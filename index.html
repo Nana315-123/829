@@ -92,6 +92,22 @@ body{
 
   transform:translate(-59px, 25px);
 }
+
+.cake-wrap::before{
+  content:"";
+  position:absolute;
+  width:115%;
+  aspect-ratio:1 / 1;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  
+  background:rgba(255,255,255,.65);
+  border-radius:28px;
+  box-shadow:0 10px 30px rgba(104,126,102,.12);
+  
+  z-index:-1;
+}
   
 .cake-image{
   display:block;
