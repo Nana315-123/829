@@ -44,10 +44,20 @@ body{
   min-height:100dvh;
   display:grid;
   place-items:center;
+  isolation:isolate;
   padding:
     max(18px,env(safe-area-inset-top))
     max(16px,4vw)
     max(18px,env(safe-area-inset-bottom));
+}
+
+.scene::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,.55);
+  z-index:0;
+  pointer-events:none;
 }
 
 .cake-stage{
